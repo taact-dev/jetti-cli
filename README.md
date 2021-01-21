@@ -3,7 +3,7 @@ Jetti CLI
 
 The Jetti CLI is used to manage your Jetti account from the command line. It is built using [oclif](https://oclif.io).
 
-For more about Heroku see <https://www.jetti.io>. To get started see <https://app.jetti.io/signup>
+For more about Jetti see <https://www.jetti.io>. To get started see <https://app.jetti.io/signup>
 
 Overview
 ========

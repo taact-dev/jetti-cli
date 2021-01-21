@@ -27,9 +27,9 @@ Commands
 Install
 ========
 
-To get started, you can either checkout the page and build locally. To do this you can `yarn` or `npm install`. Once installed, you can execute commands by running `yarn start {{command}}`. For example, `yarn start data-exports:list -s complete`.
-
-Alternatively, you can install globally through `npm` and using `npx`
+You can install globally through `npm` and using `npx`
 
 - `npm install @jetti/jetti.cli -g`
-- `npx jetti {{ command }}`
+- `jetti {{ command }}` or `npx jetti {{ command }}`
+
+Alternatively, to get started, you can either checkout the page and build locally. To do this you can `yarn` or `npm install`. Once installed, you can execute commands by running `yarn start {{command}}`. For example, `yarn start data-exports:list -s complete`.

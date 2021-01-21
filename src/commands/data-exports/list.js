@@ -1,8 +1,8 @@
-import { Command, flags } from '@oclif/command';
+const { Command, flags } = require('@oclif/command');
 
-import cli from 'cli-ux';
-import { defaultHost } from '../../helpers';
-import { throttle } from '../../utils/api';
+const { cli } = require('cli-ux');
+const { defaultHost } = require('../../helpers');
+const { throttle } = require('../../utils/api');
 
 class CliCommand extends Command {
     async run() {

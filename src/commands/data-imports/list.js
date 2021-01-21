@@ -1,8 +1,8 @@
-import { Command, flags } from '@oclif/command';
+const { Command, flags } = require('@oclif/command');
 
-import cli from 'cli-ux';
-import { defaultHost } from '../../helpers';
-import { throttle } from '../../utils/api';
+const { cli } = require('cli-ux');
+const { defaultHost } = require('../../helpers');
+const { throttle } = require('../../utils/api');
 
 class CliCommand extends Command {
     async run() {
@@ -37,9 +37,9 @@ class CliCommand extends Command {
     }
 }
 
-CliCommand.description = `List most recent imports from the account
+CliCommand.description = `List most recent imports = require(the account
 ...
-List a table of recent data imports from Jetti, manually triggered by users
+List a table of recent data imports = require(Jetti, manually triggered by users
 `;
 
 CliCommand.flags = {

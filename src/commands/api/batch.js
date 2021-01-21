@@ -1,13 +1,14 @@
-import { Command, flags } from '@oclif/command';
-import { paginate, throttle } from '../../utils/api';
+const { Command, flags } = require('@oclif/command');
+const { paginate, throttle } = require('../../utils/api');
 
-import cli from 'cli-ux';
-import { getFixture } from '../../helpers';
+
+const { cli } = require('cli-ux');
+const { getFixture } = require('../../helpers');
 
 class CliCommand extends Command {
     async run() {
         const {
-            flags: { resource, fixture },
+            flags: { resource, fixture, force },
         } = this.parse(CliCommand);
         const items = await paginate({
             resource,
@@ -16,24 +17,30 @@ class CliCommand extends Command {
             },
         });
         const json = getFixture({ fixture });
-        this.log(`Updating ${items.length} ${resource}`);
         const rows = Object.entries(json).map(([attribute, value]) => ({ attribute, value }));
         cli.table(rows, {
             attribute: {},
             value: {},
         });
-        await Promise.all(
-            items.map(async ({ id }) => {
-                const path = [resource, id].join('/');
-                await throttle({
-                    path,
-                    json,
-                    method: 'PUT',
-                });
-                this.log(`Updated data for ${path}`);
-            }),
-        );
-        this.log(`Updated ${items.length} ${resource}`);
+        let execute = force;
+        // Check for confirmation
+        if (!force) {
+            execute = await cli.confirm(`Update ${items.length} ${resource}? Type "yes/no" to continue`);
+        }
+        if (execute) {
+            await Promise.all(
+                items.map(async ({ id }) => {
+                    const path = [resource, id].join('/');
+                    await throttle({
+                        path,
+                        json,
+                        method: 'PUT',
+                    });
+                    this.log(`Updated data for ${path}`);
+                }),
+            );
+            this.log(`Updated ${items.length} ${resource}`);
+        }
     }
 }
 
@@ -44,14 +51,15 @@ Batch update resources using a JSON or YAML file
 
 CliCommand.flags = {
     resource: flags.string({
-        char: 're',
         description: 'resource to update',
         required: true,
     }),
     fixture: flags.string({
-        char: 'f',
         description: 'path to fixture to load, should be in yaml format',
         required: true,
+    }),
+    force: flags.string({
+        description: 'force change without a confirmation',
     }),
 };
 

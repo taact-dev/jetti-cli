@@ -1,12 +1,12 @@
-import jsonfile from 'jsonfile';
-import yaml from 'write-yaml';
-import yamlReader from 'yaml-reader';
+const jsonfile = require('jsonfile');
+const yaml = require('write-yaml');
+const yamlReader = require('yaml-reader');
 
-export function setToken({ token, host }) {
+module.exports.setToken = function ({ token, host }) {
     yaml.sync('.jetti.rc.yml', { token, host });
-}
+};
 
-export function getFixture({ fixture }) {
+module.exports.getFixture = function ({ fixture }) {
     if (fixture.endsWith('.yml') || fixture.endsWith('.yaml')) {
         return yamlReader.read(fixture);
     }
@@ -14,6 +14,6 @@ export function getFixture({ fixture }) {
         return jsonfile.readFileSync(fixture);
     }
     throw new Error('File must be a .json, .yml or .yaml');
-}
+};
 
-export const defaultHost = process.env.API_HOST || 'https://api.jetti.io';
+module.exports.defaultHost = process.env.API_HOST || 'https://api.jetti.io';

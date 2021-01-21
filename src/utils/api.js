@@ -1,8 +1,8 @@
-import Bottleneck from 'bottleneck';
-import got from 'got';
-import { stringify } from 'qs';
-import urlJoin from 'url-join';
-import yamlReader from 'yaml-reader';
+const Bottleneck = require('bottleneck');
+const got = require('got');
+const { stringify } = require('qs');
+const urlJoin = require('url-join');
+const yamlReader = require('yaml-reader');
 
 // Allow up to 2 calls per second
 const limiter = new Bottleneck({
@@ -10,14 +10,14 @@ const limiter = new Bottleneck({
     minTime: 2000,
 });
 
-export function readToken() {
+module.exports.readToken = () => {
     const { token, host } = yamlReader.read('.jetti.rc.yml');
     return { token, host };
-}
+};
 
 // Throttle the requests
-export async function throttle({ method = 'GET', searchParams = {}, path, json }) {
-    const { token, host } = readToken();
+module.exports.throttle = async ({ method = 'GET', searchParams = {}, path, json }) => {
+    const { token, host } = module.exports.readToken();
     const url = urlJoin(host, 'api', [path, 'json'].join('.'));
     const params = stringify(searchParams);
     return limiter.schedule(async () => {
@@ -32,14 +32,14 @@ export async function throttle({ method = 'GET', searchParams = {}, path, json }
         });
         return body;
     });
-}
+};
 
-export async function paginate({ resource }) {
+module.exports.paginate = async ({ resource }) => {
     let hasMore = true;
     const results = [];
     let from = 0;
     while (hasMore === true) {
-        const response = await throttle({
+        const response = await module.exports.throttle({
             method: 'GET',
             path: resource,
             from,
@@ -49,20 +49,18 @@ export async function paginate({ resource }) {
         from += 1;
     }
     return results;
-}
+};
 
-export async function login({ email, password, host }) {
-    return limiter.schedule(async () => {
-        const { body } = await got({
-            responseType: 'json',
-            method: 'POST',
-            json: {
-                role: 'api',
-                email,
-                password,
-            },
-            url: urlJoin(host, 'auth/login'),
-        });
-        return body;
+module.exports.login = async ({ email, password, host }) => limiter.schedule(async () => {
+    const { body } = await got({
+        responseType: 'json',
+        method: 'POST',
+        json: {
+            role: 'api',
+            email,
+            password,
+        },
+        url: urlJoin(host, 'auth/login'),
     });
-}
+    return body;
+});

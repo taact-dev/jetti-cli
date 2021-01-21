@@ -1,8 +1,8 @@
-import { Command, flags } from '@oclif/command';
-import { defaultHost, setToken } from '../../helpers';
+const { Command, flags } = require('@oclif/command');
+const { defaultHost, setToken } = require('../../helpers');
 
-import cli from 'cli-ux';
-import { login } from '../../utils/api';
+const { cli } = require('cli-ux');
+const { login } = require('../../utils/api');
 
 class CliCommand extends Command {
     async run() {

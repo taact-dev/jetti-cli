@@ -1,0 +1,28 @@
+version: 2
+jobs:
+    build:
+        working_directory: ~/jetti.cli
+        docker: # run the steps with Docker
+            - image: circleci/node:10.16.3
+        steps:
+            # Checkout and build the code
+            - type: checkout
+            - run: echo "registry=https://registry.npmjs.org/" > ~/.npmrc
+            - run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+             # Setup the credentials to publish the shared repo
+            - run: git config --global user.email "circleci@circleci"
+            - run: git config --global user.name "CircleCI"
+            - deploy:
+                name: Deploy Master
+                command: |
+                    if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                        cd ~/jetti.cli
+                        npm publish
+                        curl -X POST -d '{"repo": "@jetti/jetti.cli"}' https://hooks.zapier.com/hooks/catch/1244449/px7wqo/
+                    fi
+            # Run build error notification
+            - run:
+                name: Fail notification
+                command: |-
+                    curl -d '{"repo": "@jetti/jetti.cli"}' -X POST https://hooks.zapier.com/hooks/catch/1244449/px7ycc/
+                when: on_fail

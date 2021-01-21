@@ -1,0 +1,9 @@
+{
+    "extends": "@jetti/eslint-config-jetti",
+    "rules": {
+        "import/order": 0,
+        "import/named": 0,
+        "no-continue": 0,
+        "no-async-promise-executor": 0
+    }
+}

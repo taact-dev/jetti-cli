@@ -1,39 +1,32 @@
 const { Command, flags } = require('@oclif/command');
 
-const { cli } = require('cli-ux');
-const { defaultHost } = require('../../helpers');
+const { apiTable } = require('../../helpers');
 const { throttle } = require('../../utils/api');
 
 class CliCommand extends Command {
     async run() {
         const {
             flags: {
-                host = defaultHost,
                 status = 'complete',
             },
         } = this.parse(CliCommand);
-        this.log(`Connected to API ${host}`);
-        // Create the user under the API role in the account
-        const dataExports = await throttle({
+        const items = await throttle({
             path: 'data-exports',
             searchParams: {
                 limit: 10,
                 where: { status },
+                attributes: [
+                    'exportType',
+                    'status',
+                    'fileUri',
+                ],
                 order: {
                     attribute: 'createdAt',
                     descending: true,
                 },
             },
         });
-        cli.table(dataExports, {
-            exportType: {
-                header: 'export type',
-            },
-            status: {},
-            fileUri: {
-                header: 'Download',
-            },
-        });
+        apiTable({ items });
     }
 }
 

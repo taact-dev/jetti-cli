@@ -1,9 +1,22 @@
 const jsonfile = require('jsonfile');
 const yaml = require('write-yaml');
 const yamlReader = require('yaml-reader');
+const { cli } = require('cli-ux');
+const { underscored } = require('underscore.string');
+const flat = require('flat');
 
 module.exports.setToken = function ({ token, host }) {
     yaml.sync('.jetti.rc.yml', { token, host });
+};
+
+module.exports.apiTable = function ({ items }) {
+    const flattened = items.map(item => flat(item));
+    cli.table(flattened, Object.keys(flattened[0]).reduce((obj, key) => ({
+        ...obj,
+        [key]: {
+            header: underscored(key),
+        },
+    }), {}));
 };
 
 module.exports.getFixture = function ({ fixture }) {

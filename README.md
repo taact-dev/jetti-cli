@@ -22,6 +22,7 @@ Commands
 - `jetti auth:token` - Provision an API user / token in Jetti. There are API token limits with accounts, so we recommend using existing tokens where possible rather than generating tokens ad-hoc.
 - `jetti data-exports:list` - List data exports triggered by users.
 - `jetti data-imports:list` - List data imports triggered by users.
+- `jetti inventory-feeds:list` - List inventory feeds in Jetti.
 - `jetti users:create` - List data imports triggered by users.
 
 Install

@@ -34,7 +34,7 @@ module.exports.throttle = async ({ method = 'GET', searchParams = {}, path, json
     });
 };
 
-module.exports.paginate = async ({ resource }) => {
+module.exports.paginate = async ({ resource, searchParams }) => {
     let hasMore = true;
     const results = [];
     let from = 0;
@@ -42,7 +42,7 @@ module.exports.paginate = async ({ resource }) => {
         const response = await module.exports.throttle({
             method: 'GET',
             path: resource,
-            from,
+            searchParams: { ...searchParams, from },
         });
         results.push(...response);
         hasMore = response.length === 0;

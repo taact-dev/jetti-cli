@@ -26,14 +26,9 @@ CliCommand.flags = {
         char: 'e',
         description: 'email',
         default: 'admin',
-        required: true,
+        required: false,
     }),
     role: flags.string({
-        char: 'e',
-        description: 'email',
-        required: true,
-    }),
-    password: flags.string({
         char: 'e',
         description: 'email',
         required: true,

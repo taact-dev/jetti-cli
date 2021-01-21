@@ -23,15 +23,13 @@ Batch update resources using a JSON or YAML file
 
 CliCommand.flags = {
     email: flags.string({
-        char: 'e',
-        description: 'email',
-        default: 'admin',
-        required: false,
-    }),
-    role: flags.string({
-        char: 'e',
         description: 'email',
         required: true,
+    }),
+    role: flags.string({
+        description: 'Role for the new account',
+        default: 'admin',
+        required: false,
     }),
 };
 

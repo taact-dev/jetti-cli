@@ -1,10 +1,10 @@
 {
   "name": "@jetti/jetti.cli",
   "description": "Jetti CLI",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Jon Bolt @epicbagel",
   "bin": {
-    "jetti": "babel-node ./bin/run"
+    "jetti": "node ./bin/run"
   },
   "bugs": "https://github.com/taact-dev/jetti.cli/issues",
   "dependencies": {
@@ -69,7 +69,7 @@
   },
   "repository": "taact-dev/jetti.cli",
   "scripts": {
-    "start": "babel-node ./bin/run",
+    "start": "node ./bin/run",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint .",
     "prepack": "oclif-dev manifest && oclif-dev readme",

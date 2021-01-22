@@ -34,3 +34,5 @@ You can install globally through `npm` and using `npx`
 - `jetti {{ command }}` or `npx jetti {{ command }}`
 
 Alternatively, to get started, you can either checkout the page and build locally. To do this you can `yarn` or `npm install`. Once installed, you can execute commands by running `yarn start {{command}}`. For example, `yarn start data-exports:list -s complete`.
+
+![](https://p-wrF6mq.t4.n0.cdn.getcloudapp.com/items/4guOkqGy/14930774-9b19-4c6a-97dc-c91ec9f53b2d.png?v=666bc97a9c1aed835b743272c74dfcf2)

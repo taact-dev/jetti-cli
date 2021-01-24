@@ -1,7 +1,6 @@
 const { Command, flags } = require('@oclif/command');
 const { paginate, throttle } = require('../../utils/api');
 
-
 const { cli } = require('cli-ux');
 const { getFixture } = require('../../helpers');
 

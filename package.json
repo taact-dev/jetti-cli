@@ -1,7 +1,7 @@
 {
   "name": "@jetti/jetti.cli",
   "description": "Jetti CLI",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "Jon Bolt @epicbagel",
   "bin": {
     "jetti": "./bin/run"

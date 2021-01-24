@@ -1,7 +1,7 @@
 {
   "name": "@jetti/jetti.cli",
   "description": "Jetti CLI",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "Jon Bolt @epicbagel",
   "bin": {
     "jetti": "./bin/run"
@@ -25,6 +25,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
+    "auto-changelog": "^2.2.1",
     "bluebird": "^3.7.2",
     "bottleneck": "^2.19.5",
     "cli-ux": "^5.5.1",
@@ -33,6 +34,7 @@
     "got": "^11.8.1",
     "jsonfile": "^6.1.0",
     "qs": "^6.9.6",
+    "standard-version": "^9.1.0",
     "underscore.string": "^3.3.5",
     "url-join": "^4.0.1",
     "urljoin": "^0.1.5",
@@ -40,10 +42,13 @@
     "yaml-reader": "^1.0.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@oclif/dev-cli": "^1",
     "@oclif/test": "^1",
     "chai": "^4",
     "globby": "^10",
+    "husky": "^4.3.8",
     "mocha": "^5",
     "nyc": "^14"
   },
@@ -72,10 +77,12 @@
   "repository": "taact-dev/jetti.cli",
   "scripts": {
     "start": "node ./bin/run",
+    "build:lint": "eslint './src/**/*.js'",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint .",
     "prepack": "oclif-dev manifest && oclif-dev readme",
     "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md",
+    "release": "standard-version"
   }
 }

@@ -1,1 +1,155 @@
-{"version":"0.0.1","commands":{"api:batch":{"id":"api:batch","description":"Batch update a resource in Jetti\n...\nBatch update resources using a JSON or YAML file\n","pluginName":"@jetti/jetti.cli","pluginType":"core","aliases":[],"flags":{"resource":{"name":"resource","type":"option","char":"re","description":"resource to update","required":true},"fixture":{"name":"fixture","type":"option","char":"f","description":"path to fixture to load, should be in yaml format","required":true}},"args":[]},"auth:login":{"id":"auth:login","description":"Login to your Jetti account\n...\nYou'll require the email and password for your Jetti account\n","pluginName":"@jetti/jetti.cli","pluginType":"core","aliases":[],"flags":{"email":{"name":"email","type":"option","char":"e","description":"login email"},"password":{"name":"password","type":"option","char":"p","description":"login password"},"host":{"name":"host","type":"option","char":"h","description":"host"}},"args":[]},"auth:token":{"id":"auth:token","description":"Create a new API user / token for API authentication or CLI usage\n...\nThis will add a new API user to your account and generate an API token. You'll be logged out of your current session.\n","pluginName":"@jetti/jetti.cli","pluginType":"core","aliases":[],"flags":{"email":{"name":"email","type":"option","char":"e","description":"login email"},"host":{"name":"host","type":"option","char":"h","description":"host"}},"args":[]},"data-exports:list":{"id":"data-exports:list","description":"List most recent exports from the account\n...\nList a table of recent data exports from Jetti, manually triggered by users\n","pluginName":"@jetti/jetti.cli","pluginType":"core","aliases":[],"flags":{"host":{"name":"host","type":"option","char":"h","description":"host"},"status":{"name":"status","type":"option","char":"s","description":"filter by status"}},"args":[]},"data-imports:list":{"id":"data-imports:list","description":"List most recent imports = require(the account\n...\nList a table of recent data imports = require(Jetti, manually triggered by users\n","pluginName":"@jetti/jetti.cli","pluginType":"core","aliases":[],"flags":{"host":{"name":"host","type":"option","char":"h","description":"host"},"status":{"name":"status","type":"option","char":"s","description":"filter by status"}},"args":[]},"users:create":{"id":"users:create","description":"Batch update a resource in Jetti\n...\nBatch update resources using a JSON or YAML file\n","pluginName":"@jetti/jetti.cli","pluginType":"core","aliases":[],"flags":{"email":{"name":"email","type":"option","char":"e","description":"email","required":true,"default":"admin"},"role":{"name":"role","type":"option","char":"e","description":"email","required":true},"password":{"name":"password","type":"option","char":"e","description":"email","required":true}},"args":[]}}}
+{
+    "version": "0.0.1",
+    "commands": {
+        "api:batch": {
+            "id": "api:batch",
+            "description": "Batch update a resource in Jetti\n...\nBatch update resources using a JSON or YAML file\n",
+            "pluginName": "@jetti/jetti.cli",
+            "pluginType": "core",
+            "aliases": [],
+            "flags": {
+                "resource": {
+                    "name": "resource",
+                    "type": "option",
+                    "char": "re",
+                    "description": "resource to update",
+                    "required": true
+                },
+                "fixture": {
+                    "name": "fixture",
+                    "type": "option",
+                    "char": "f",
+                    "description": "path to fixture to load, should be in yaml format",
+                    "required": true
+                }
+            },
+            "args": []
+        },
+        "auth:login": {
+            "id": "auth:login",
+            "description": "Login to your Jetti account\n...\nYou'll require the email and password for your Jetti account\n",
+            "pluginName": "@jetti/jetti.cli",
+            "pluginType": "core",
+            "aliases": [],
+            "flags": {
+                "email": {
+                    "name": "email",
+                    "type": "option",
+                    "char": "e",
+                    "description": "login email"
+                },
+                "password": {
+                    "name": "password",
+                    "type": "option",
+                    "char": "p",
+                    "description": "login password"
+                },
+                "host": {
+                    "name": "host",
+                    "type": "option",
+                    "char": "h",
+                    "description": "host"
+                }
+            },
+            "args": []
+        },
+        "auth:token": {
+            "id": "auth:token",
+            "description": "Create a new API user / token for API authentication or CLI usage\n...\nThis will add a new API user to your account and generate an API token. You'll be logged out of your current session.\n",
+            "pluginName": "@jetti/jetti.cli",
+            "pluginType": "core",
+            "aliases": [],
+            "flags": {
+                "email": {
+                    "name": "email",
+                    "type": "option",
+                    "char": "e",
+                    "description": "login email"
+                },
+                "host": {
+                    "name": "host",
+                    "type": "option",
+                    "char": "h",
+                    "description": "host"
+                }
+            },
+            "args": []
+        },
+        "data-exports:list": {
+            "id": "data-exports:list",
+            "description": "List most recent exports from the account\n...\nList a table of recent data exports from Jetti, manually triggered by users\n",
+            "pluginName": "@jetti/jetti.cli",
+            "pluginType": "core",
+            "aliases": [],
+            "flags": {
+                "host": {
+                    "name": "host",
+                    "type": "option",
+                    "char": "h",
+                    "description": "host"
+                },
+                "status": {
+                    "name": "status",
+                    "type": "option",
+                    "char": "s",
+                    "description": "filter by status"
+                }
+            },
+            "args": []
+        },
+        "data-imports:list": {
+            "id": "data-imports:list",
+            "description": "List most recent imports = require(the account\n...\nList a table of recent data imports = require(Jetti, manually triggered by users\n",
+            "pluginName": "@jetti/jetti.cli",
+            "pluginType": "core",
+            "aliases": [],
+            "flags": {
+                "host": {
+                    "name": "host",
+                    "type": "option",
+                    "char": "h",
+                    "description": "host"
+                },
+                "status": {
+                    "name": "status",
+                    "type": "option",
+                    "char": "s",
+                    "description": "filter by status"
+                }
+            },
+            "args": []
+        },
+        "users:create": {
+            "id": "users:create",
+            "description": "Batch update a resource in Jetti\n...\nBatch update resources using a JSON or YAML file\n",
+            "pluginName": "@jetti/jetti.cli",
+            "pluginType": "core",
+            "aliases": [],
+            "flags": {
+                "email": {
+                    "name": "email",
+                    "type": "option",
+                    "char": "e",
+                    "description": "email",
+                    "required": true,
+                    "default": "admin"
+                },
+                "role": {
+                    "name": "role",
+                    "type": "option",
+                    "char": "e",
+                    "description": "email",
+                    "required": true
+                },
+                "password": {
+                    "name": "password",
+                    "type": "option",
+                    "char": "e",
+                    "description": "email",
+                    "required": true
+                }
+            },
+            "args": []
+        }
+    }
+}

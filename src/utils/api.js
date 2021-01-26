@@ -3,6 +3,7 @@ const got = require('got');
 const { stringify } = require('qs');
 const urlJoin = require('url-join');
 const yamlReader = require('yaml-reader');
+const { isClientProblem, wrapClientProblem } = require('@jetti/jetti.problem');
 
 // Allow up to 2 calls per second
 const limiter = new Bottleneck({
@@ -21,16 +22,32 @@ module.exports.throttle = async ({ method = 'GET', searchParams = {}, path, json
     const url = urlJoin(host, 'api', [path, 'json'].join('.'));
     const params = stringify(searchParams);
     return limiter.schedule(async () => {
-        const { body } = await got({
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-            responseType: 'json',
-            json,
-            method,
-            url: [url, params].join('?'),
-        });
-        return body;
+        try {
+            const { body } = await got({
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                responseType: 'json',
+                json,
+                method,
+                url: [url, params].join('?'),
+            });
+            return body;
+        } catch (err) {
+            console.log('sdfadsfadsfasdfadsf', {
+                body: err.response.body,
+                err,
+                isProblem: isClientProblem(err.response.body),
+            });
+            // const error = wraper
+            if (isClientProblem(err.response.body)) {
+                const toThrow = new Error(err.title);
+                Object.assign(toThrow, err);
+                // TODO lookup contentful for error message
+                throw toThrow;
+            }
+            throw err;
+        }
     });
 };
 

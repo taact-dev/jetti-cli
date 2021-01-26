@@ -22,18 +22,21 @@
     "@babel/preset-env": "7.3.1",
     "@babel/register": "^7.0.0",
     "@jetti/eslint-config-jetti": "^0.1.1",
+    "@jetti/jetti.problem": "^0.1.1",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "auto-changelog": "^2.2.1",
     "bluebird": "^3.7.2",
     "bottleneck": "^2.19.5",
+    "build-url": "^6.0.1",
     "cli-ux": "^5.5.1",
     "commitizen": "^4.2.3",
     "dotenv": "^8.2.0",
     "flat": "^5.0.2",
     "got": "^11.8.1",
     "jsonfile": "^6.1.0",
+    "open": "^7.3.1",
     "qs": "^6.9.6",
     "standard-version": "^9.1.0",
     "underscore.string": "^3.3.5",
@@ -85,7 +88,6 @@
     "prepack": "oclif-dev manifest && oclif-dev readme",
     "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
     "version": "oclif-dev readme && git add README.md",
-    "release": "cz && standard-version",
-    "release:commit": "cz"
+    "release": "cz && standard-version"
   }
 }

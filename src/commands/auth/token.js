@@ -2,17 +2,13 @@ const { Command, flags } = require('@oclif/command');
 const { defaultHost, setToken } = require('../../helpers');
 
 const { cli } = require('cli-ux');
-const { throttle } = require('../../utils/api');
+const { throttle, readToken } = require('../../utils/api');
 
 class CliCommand extends Command {
     async run() {
         let {
-            flags: { email, host },
+            flags: { email },
         } = this.parse(CliCommand);
-        if (!host) {
-            host = defaultHost;
-        }
-        this.log(`Connected to API ${host}`);
         // Fetch the email if it has not yet been captured
         if (!email) {
             email = await cli.prompt('Email for developer notifications');
@@ -26,6 +22,8 @@ class CliCommand extends Command {
             },
             method: 'POST',
         });
+        // Read the current host
+        const { host } = readToken();
         this.log(`A new API token has been provisioned for ${email} on host ${host}.`, { token });
         this.log('You are now using this new token for any CLI action / API authentication');
         // Save the token locally
@@ -42,10 +40,6 @@ CliCommand.flags = {
     email: flags.string({
         char: 'e',
         description: 'login email',
-    }),
-    host: flags.string({
-        char: 'h',
-        description: 'host',
     }),
 };
 

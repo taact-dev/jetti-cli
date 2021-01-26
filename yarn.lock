@@ -1029,10 +1029,10 @@
     eslint-config-airbnb-base "14.2.0"
     eslint-plugin-import "^2.22.1"
 
-"@jetti/jetti.problem@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/@jetti/jetti.problem/-/jetti.problem-0.1.1.tgz#d1f32db1b1a7b54bc7b2c57a14e175f0856c5f28"
-  integrity sha512-2DruJw0tGv8lhQckDQY/F2NL2p0QQIb5a35hQrZlVmuwgr9l5c2LxkBiO8RezQZZLSE1vwjhZgldVKeO4HKWNg==
+"@jetti/jetti.problem@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/@jetti/jetti.problem/-/jetti.problem-0.1.2.tgz#adba4c41685ad1386ff0aa49398ece84221aaf16"
+  integrity sha512-B+LY0tSE9f6E2OWsWp/zV6JSvWnBktQJpK9SCNqkE4swmZHscnK1W68VS2FsefMTCPCavMnvyrGSB0bDm/XZyg==
   dependencies:
     "@babel/plugin-proposal-decorators" "7.4.4"
     api-problem "^6.1.4"

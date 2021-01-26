@@ -34,17 +34,10 @@ module.exports.throttle = async ({ method = 'GET', searchParams = {}, path, json
             });
             return body;
         } catch (err) {
-            console.log('sdfadsfadsfasdfadsf', {
-                body: err.response.body,
-                err,
-                isProblem: isClientProblem(err.response.body),
-            });
             // const error = wraper
-            if (isClientProblem(err.response.body)) {
-                const toThrow = new Error(err.title);
-                Object.assign(toThrow, err);
-                // TODO lookup contentful for error message
-                throw toThrow;
+            if (isClientProblem(err.response?.body)) {
+                const problem = wrapClientProblem(err.response.body);
+                throw problem;
             }
             throw err;
         }

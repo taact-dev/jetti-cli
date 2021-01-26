@@ -1,5 +1,5 @@
 const { Command, flags } = require('@oclif/command');
-const { defaultHost, setToken } = require('../../helpers');
+const { setToken } = require('../../helpers');
 
 const { cli } = require('cli-ux');
 const { throttle, readToken } = require('../../utils/api');

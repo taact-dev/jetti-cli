@@ -1,6 +1,7 @@
 const { Command, flags } = require('@oclif/command');
 
 const { throttle } = require('../../utils/api');
+const prettyjson = require('prettyjson');
 
 class CliCommand extends Command {
     async run() {
@@ -12,9 +13,16 @@ class CliCommand extends Command {
                 path: `purchases/${id}/rates`,
                 method: 'POST',
             });
+            this.log(response);
         } catch (err) {
-            console.log('sdfadsfadsfdsf', err);
-            console.log('sdfadsfadsfdsf', Object.keys(err));
+            if (err.problem) {
+                this.log(prettyjson.render(err.problem, {
+                    indent: 4,
+                }));
+                this.error(err.title);
+            } else {
+                throw err;
+            }
         }
     }
 }

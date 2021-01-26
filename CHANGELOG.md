@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/taact-dev/jetti.cli/compare/v0.0.12...v0.0.13) (2021-01-26)
+
+
+### Features
+
+* use jetti.problem for pretty printing 7807 errors from API ([1657158](https://github.com/taact-dev/jetti.cli/commit/1657158443830ed076991b84a6a6d4416cab006f))
+
 ### [0.0.12](https://github.com/taact-dev/jetti.cli/compare/v0.0.11...v0.0.12) (2021-01-26)
 
 

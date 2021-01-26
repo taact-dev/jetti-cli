@@ -1,7 +1,7 @@
 {
   "name": "@jetti/jetti.cli",
   "description": "Jetti CLI",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "author": "Jon Bolt @epicbagel",
   "bin": {
     "jetti": "./bin/run"
@@ -37,6 +37,7 @@
     "got": "^11.8.1",
     "jsonfile": "^6.1.0",
     "open": "^7.3.1",
+    "prettyjson": "^1.2.1",
     "qs": "^6.9.6",
     "standard-version": "^9.1.0",
     "underscore.string": "^3.3.5",

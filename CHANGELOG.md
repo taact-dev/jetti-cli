@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/taact-dev/jetti.cli/compare/v0.0.11...v0.0.12) (2021-01-26)
+
+
+### Bug Fixes
+
+* **auth:** adding token no longer resolves to default host ([ead82ea](https://github.com/taact-dev/jetti.cli/commit/ead82eadd7fa20df54dc1bde5490aced744c4a8d))
+
 ### [0.0.11](https://github.com/taact-dev/jetti.cli/compare/v0.0.10...v0.0.11) (2021-01-26)
 
 

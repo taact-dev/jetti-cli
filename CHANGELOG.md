@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/taact-dev/jetti.cli/compare/v0.0.13...v0.0.14) (2021-01-28)
+
+
+### Features
+
+* **commands:** commands to send purchases orders / clone sales / update sales ([46c7fb4](https://github.com/taact-dev/jetti.cli/commit/46c7fb4d03b245a08bc70e2979833a7feb97d734))
+
 ### [0.0.13](https://github.com/taact-dev/jetti.cli/compare/v0.0.12...v0.0.13) (2021-01-26)
 
 

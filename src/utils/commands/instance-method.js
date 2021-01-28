@@ -1,4 +1,5 @@
 const { Command, flags: Flags } = require('@oclif/command');
+const { pick } = require('lodash');
 
 const { throttle } = require('../api');
 const prettyjson = require('prettyjson');
@@ -16,7 +17,10 @@ class InstanceMethodCommand extends Command {
                 method,
                 json,
             });
-            this.log(prettyjson.render(response, {
+            const toRender = this.flags.pick
+                ? pick(response, this.flags.pick.split(':'))
+                : response;
+            this.log(prettyjson.render(toRender, {
                 indent: 4,
             }));
         } catch (err) {
@@ -36,6 +40,9 @@ InstanceMethodCommand.flags = {
     id: Flags.string({
         id: 'ID of the instance',
         required: true,
+    }),
+    pick: Flags.string({
+        id: 'Pick fields in the response',
     }),
 };
 

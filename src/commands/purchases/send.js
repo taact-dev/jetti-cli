@@ -6,8 +6,11 @@ class CliCommand extends InstanceMethodCommand {
         this.flags = flags;
         this.runInstanceMethod({
             resource: 'purchases',
-            action: 'rates',
-            method: 'POST',
+            action: 'send',
+            method: 'PUT',
+            json: {
+                errorNotification: false,
+            },
         });
     }
 }

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/taact-dev/jetti.cli/compare/v0.0.15...v0.0.16) (2021-02-08)
+
+
+### Features
+
+* **purchases:** generate default label for a dropship purchase ([4b2c2da](https://github.com/taact-dev/jetti.cli/commit/4b2c2dafbf0447bb50b4bd8d00f1b92e15a1b81f))
+
 ### [0.0.15](https://github.com/taact-dev/jetti.cli/compare/v0.0.14...v0.0.15) (2021-01-28)
 
 ### [0.0.14](https://github.com/taact-dev/jetti.cli/compare/v0.0.13...v0.0.14) (2021-01-28)

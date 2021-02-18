@@ -28,7 +28,6 @@ class InstanceMethodCommand extends Command {
                 this.log(prettyjson.render(err.problem, {
                     indent: 4,
                 }));
-                this.error(err.title);
             } else {
                 throw err;
             }

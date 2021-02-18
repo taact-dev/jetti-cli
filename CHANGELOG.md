@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/taact-dev/jetti.cli/compare/v0.0.16...v0.0.17) (2021-02-18)
+
+
+### Features
+
+* remove duplicate error logging when reporting api problem ([a41fd0a](https://github.com/taact-dev/jetti.cli/commit/a41fd0a987b0ceda1ba959ae2a6836887fd5d957))
+
 ### [0.0.16](https://github.com/taact-dev/jetti.cli/compare/v0.0.15...v0.0.16) (2021-02-08)
 
 

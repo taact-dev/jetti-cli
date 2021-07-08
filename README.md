@@ -24,6 +24,11 @@ Commands
 - `jetti data-imports:list` - List data imports triggered by users.
 - `jetti inventory-feeds:list` - List inventory feeds in Jetti.
 - `jetti users:create` - List data imports triggered by users.
+- `jetti api:batch --resource` - Batch update a resource in Jetti.
+- `jetti sales:update --resource` - Update a sale.
+- `jetti sales:clone --resource` - Clone a sale.
+- `jetti purchases:rates --id [:id] --trace-deprecation` - Generate shipping rates from order id.
+- `jetti purchases:default-label --id [:id]` - Generate shipping label with default rates.
 
 Install
 ========
